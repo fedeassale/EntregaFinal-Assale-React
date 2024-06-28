@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:ital,wght@1,100&display=swap');
+
 *{  margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 .menu{
-    background-image: url(./img/maderaclara.webp);
+    background-image: url(/img/maderaclara.webp);
     align-items: center;
     display: flex;
     justify-content: space-around;
@@ -16,6 +18,14 @@
     justify-content: space-around;
     list-style: none;
 }
+button {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-align: center; 
+  }
 .Boton{
     padding: 10px 30px;
     border-style: solid;
@@ -32,11 +42,7 @@
     text-overflow: none;
     color: black;
 }
-/* .productos{
-    text-align: center;
-    margin-top: 300px;
-} */
-.carrito{
+.carritoimg{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +63,7 @@
     border-style: solid;
     border-color: black;
     border-radius: 10px;
+    color: black;
 }
 .flexCard{
     display: grid;
@@ -67,9 +74,8 @@ max-width: 1000px;
 margin: 20px;
 padding-top: 30px;
 border-style: solid;
-border-color: black;
+border-color: white;
 border-radius: 10px;
-box-shadow: 1px 1px;
 color: black;
 height:600px ;
 
@@ -83,6 +89,12 @@ height:600px ;
     text-align: center;
 
 }
+.textCardDescription{
+    font-size:small;
+    padding: 10px 10px;
+    text-align: center;
+    height: 5em;
+}
 .imgCardContainer{
     margin: auto;
     width: 200px;
@@ -94,22 +106,46 @@ height:600px ;
    object-fit: contain;
 
 }
-.TextCardBtn{
+ .TextCardBtn{
     text-decoration: none;
     color: rgb(0, 0, 0);
     
+    
+    
+} 
+.TextCarcBtnC{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    width: 100%;
+    height: 100%;
 }
-.botonCard{
+ .botonCard{
     padding: 10px 30px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-color: rgb(119, 118, 118);
+    border-radius: 10px; 
+    border-width: 0.1px;
+    width:fit-content;
     margin: auto;
-    margin-bottom: 10px;
+    
+} 
+.botonCardAgregaralCarrito{
+    padding: 10px 30px;
+    
+    margin: 10px;
     border-style: solid;
     border-color: rgb(3, 3, 3);
     border-radius: 10px;
-    width: fit-content;
+    border-width: 0.1px;
+    
 }
 .botonCard:hover{
     transform: scale(1.01);
+}
+.botonCardAgregaralCarrito:hover{
+    transform: scale(1.01);
+    
 }
 .DetailItem {
     
@@ -119,4 +155,86 @@ height:600px ;
 }
 .textTitulo{
     text-align: center;
+}
+.carrito{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.5px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    width: 70%;
+}
+.textCarrito{
+    font-size: medium;
+    width: 500px;
+    padding: 20px;
+    
+
+}
+.botonEliminar{
+    cursor:pointer;
+    padding-right: 10px;
+    
+}
+.botonesCarrito{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.carritoText{
+    padding: 10px 80px;
+    text-align: center;
+   
+}
+.table{
+    width: 80%;
+    margin:auto;
+
+}
+.btnSuma{
+    cursor:pointer;
+    padding: 10px 20px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.5px;
+    border-radius: 25%;
+    margin: 10px;
+}
+.flexSuma{
+    display: flex;
+    justify-content: center;
+}
+.posicionFooter{
+    min-height: 750px;
+}
+.formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 540px;
+    margin: auto;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.5px;
+    border-radius: 10px;
+    margin-top: 20px;
+    
+}
+.inputFor{
+    width: 500px;
+    margin: 20px;
+    text-align: center;
+}
+.form-label{
+    text-align: center;
+}
+.textFooter{
+ text-align: center;   
+ font-family: 'Dancing Script', cursive;
+ font-size: 30px;
+ text-shadow: 1px 1px 2px rgb(8, 7, 7), 0 0 1em rgb(45, 12, 12), 0 0 0.2em rgb(45, 7, 7);
 }

@@ -1,9 +1,24 @@
-import Carrito from "../Carrito/Carrito"
-import { Link,NavLink } from "react-router-dom"
-import categories from "../../productos/categorias.json";
+import { Link,NavLink } from "react-router-dom";
 import React from 'react';
+import CartWidget from "../CartWidget/CartWidget";
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config.js';
+import  {useState } from 'react';
 
 export const NavBar = () => {
+
+  let [categories , setCategories]= useState([]);
+
+  const categoriasRef = collection(db,"categorias");
+
+  getDocs(categoriasRef)
+  .then((res)=>{
+    setCategories(res.docs.map((doc)=>{
+      return { ...doc.data()} 
+  }))});
+
+
+  
 
   return (
         <div className="menu">
@@ -14,7 +29,7 @@ export const NavBar = () => {
                 <NavLink className="BotonText" to="/">Inicio</NavLink>
               </li>
               {
-              categories.map((category) => {
+                categories.map((category) => {
                   return (
                     <li key={category.id} className="Boton">
                       <NavLink className="BotonText" to={`/category/${category.id}`}>
@@ -22,11 +37,11 @@ export const NavBar = () => {
                       </NavLink>
                     </li>
                   )
-              })
-            } 
+                })
+              } 
             </ul>
           </nav>
-          <div><Carrito/></div>
+          <div><CartWidget /></div>
         </div>
       
 

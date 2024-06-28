@@ -1,34 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import data from "../../productos/productos.json";
-import { Link,NavLink } from "react-router-dom";
+import {  useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import ItemDetails from '../ItemDetails/ItemDetails';
+import {doc,getDoc} from "firebase/firestore";
+import { db } from '../../firebase/config';
+
 
 const ItemDetailContainer = () => {
 
     let { itemId } = useParams();
     let [producto, setProducto] = useState(undefined);
 
-    useEffect(() => {
-        setProducto(data.find((prod) => prod.id === parseInt(itemId)));
-    }, [itemId])
-    
+    let [cargando, setCargando] =useState(true);
 
-  return (
-    <div>{producto ?
-       <div className='DetailItem'> 
-        <h2 className='textCard' > {producto.nombre}</h2>
-        <div className='imgCardContainer'>
-          <img className='imgCard' src={producto.img}></img>
-        </div>
-        <p className='textCard' > {producto.descripcion} </p>
-        <p className='textCard' >$ {producto.precio} </p>
-        <div className='botonCard'>
-          <Link className='TextCarcBtn' to={`/`}>Volver</Link>
-        </div>
-       </div>
-       : "Cargando..."}
-    </div>
-  )
+    useEffect(() => {
+        const docRef=doc(db,"productos",itemId);
+        getDoc(docRef)
+        .then(res=>{
+        if(res.data()){
+          setProducto( { ...res.data(), id: res.id });
+        }
+        setCargando(false)
+        })}
+    , [itemId]);
+
+        if(cargando){
+          return <div>cargando...</div>
+        } else if(producto){
+          return (
+            <ItemDetails producto={producto} />
+           
+         )
+        } else{
+          return <div>producto no encontrado</div>
+        }
+  
 }
 
 export default ItemDetailContainer
