@@ -22,7 +22,7 @@ Funcionalidades
 
 INSTALACIÓN
 
-CLONAR REPOSITORIO:
+CLONAR REPOSITORIO:https://github.com/fedeassale/EntregaFinal-Assale-React.git
 INSTALAR DEPENDECIAS: npm install
 INICIAR APLICACIÓN: npm run dev
  AUTOR
